@@ -5,18 +5,10 @@ htmlFieldString = '';
 tikToeField.forEach((elem, i) => {
     htmlFieldString += '<div class="row">';
     tikToeField.forEach((elem, j) => {
-        htmlFieldString += `<div class="cell cell-${i}-${j}" data-i="${i}" data-j="${j}"></div>`;
+        htmlFieldString += `<div onselectstart="return false" onmousedown="return false" class="cell cell-${i}-${j}" data-i="${i}" data-j="${j}"></div>`;
     })
     htmlFieldString += '</div>';
 });
-
-// for (let i = 0; i < tikToeField.length; i++) {
-//     htmlFieldString += '<div class="row">';
-//     for (let j = 0; j < tikToeField.length; j++) {
-//         htmlFieldString += `<div class="cell cell-${i}-${j}" data-i="${i}" data-j="${j}"></div>`;
-//     }
-//     htmlFieldString = htmlFieldString + '</div>';
-// }
 
 document.querySelector('.field').innerHTML = htmlFieldString;
 
@@ -30,11 +22,6 @@ function onFieldClick(event) {
     (step % 2 === 0) ? document.querySelector(`.cell-${i}-${j}`).innerHTML = 'X' : document.querySelector(`.cell-${i}-${j}`).innerHTML = 'O';
     
     step++;
-
-    // let isFilledCell;
-    // if (isFilledCell){
-    //     return;
-    // };
    
     checkWinner();
 }
@@ -92,7 +79,5 @@ function checkWinner(){
         setTimeout(winnerO, 0) 
     }
 }
-
-
 
 document.querySelector('.field').addEventListener('click', onFieldClick);
