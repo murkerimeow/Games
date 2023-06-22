@@ -2,9 +2,9 @@ let tikToeField = [new Array(3), new Array(3), new Array(3)];
 
 htmlFieldString = '';
 
-tikToeField.forEach((i) => {
+tikToeField.forEach((elem, i) => {
     htmlFieldString += '<div class="row">';
-    tikToeField.forEach((j) => {
+    tikToeField.forEach((elem, j) => {
         htmlFieldString += `<div class="cell cell-${i}-${j}" data-i="${i}" data-j="${j}"></div>`;
     })
     htmlFieldString += '</div>';
